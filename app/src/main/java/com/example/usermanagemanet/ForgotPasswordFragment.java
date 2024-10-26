@@ -35,7 +35,7 @@ public class ForgotPasswordFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ForgotPasswordFragmen() {
+    public ForgotPasswordFragment() {
         // Required empty public constructor
     }
 

@@ -111,13 +111,13 @@ public class LoginFragment extends Fragment {
                         new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                Toast.makeText(getActivity(),"success!",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(),"you are succefully logged in !",Toast.LENGTH_SHORT).show();
                             }
                         }
                 ).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Failed to log in ", Toast.LENGTH_SHORT).show();
 
                     }
                 });
