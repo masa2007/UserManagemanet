@@ -22,8 +22,19 @@ public class MainActivity extends AppCompatActivity {
             return insets;
 
         });
+    }
 
-        gotoLoginFraqment();
+    @Override
+    protected void onStart() {
+        super.onStart();
+        gotoAnimalFragment();
+    }
+
+    private void gotoAnimalFragment() {
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutFrame,new AnimalFragment());
+        ft.commit();
+
     }
 
     private void gotoLoginFraqment() {
