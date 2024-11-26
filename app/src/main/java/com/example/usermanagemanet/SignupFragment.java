@@ -73,7 +73,7 @@ public class SignupFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_signup, container, false);
     }
 
-     public void OnStart(){
+     public void onStart(){
         super.onStart();
         //connecting components
          fbs=FireBaseServices.getInstance();

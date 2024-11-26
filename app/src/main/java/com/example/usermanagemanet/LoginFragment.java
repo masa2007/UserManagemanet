@@ -78,7 +78,7 @@ public class LoginFragment extends Fragment {
     }
 
 
-    public void OnStart(){
+    public void onStart(){
         super.onStart();
         //connecting components
         fbs=FireBaseServices.getInstance();
@@ -86,8 +86,14 @@ public class LoginFragment extends Fragment {
         etforgotpassword=getView().findViewById(R.id.etforgotpasswordLogin);
         etPassword=getView().findViewById(R.id.etpasswordLogin);
         btnLoginLogin=getView().findViewById(R.id.btnLoginLogin);
-        tvSignUPlink=getView().findViewById(R.id.tvSignupLinkLogin);
+        etforgotpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoForgotPasswordFragment();
+            }
+        });
 
+        tvSignUPlink=getView().findViewById(R.id.tvSignupLinkLogin);
         tvSignUPlink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +118,9 @@ public class LoginFragment extends Fragment {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 Toast.makeText(getActivity(),"you are succefully logged in !",Toast.LENGTH_SHORT).show();
+                                gotoAnimalFragment();
                             }
+
                         }
                 ).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -127,6 +135,20 @@ public class LoginFragment extends Fragment {
     private void gotoSignupFragment() {
         FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutFrame,new SignupFragment());
+        ft.commit();
+
+    }
+
+    private void gotoForgotPasswordFragment() {
+        FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutFrame,new ForgotPasswordFragment());
+        ft.commit();
+
+    }
+
+    private void gotoAnimalFragment() {
+        FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutFrame,new AnimalFragment());
         ft.commit();
 
     }

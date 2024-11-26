@@ -73,7 +73,7 @@ public class ForgotPasswordFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_forgot_password, container, false);
     }
 
-    public void OnStart(){
+    public void onStart(){
         super.onStart();
         //connecting components
         fbs=FireBaseServices.getInstance();

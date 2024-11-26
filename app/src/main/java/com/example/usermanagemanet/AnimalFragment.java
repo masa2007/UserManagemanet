@@ -29,6 +29,7 @@ public class AnimalFragment extends Fragment {
     private EditText etBirthdate;
     private EditText etColorAn;
     private EditText etPlaceAn;
+    private EditText etPrice;
     private Button btnAdd;
     private FireBaseServices fbs;
 
@@ -79,7 +80,7 @@ public class AnimalFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_animal, container, false);
     }
-    public void OnStart() {
+    public void onStart() {
         super.onStart();
         connectComponents();
     }
@@ -92,12 +93,13 @@ public class AnimalFragment extends Fragment {
         etBirthdate = getActivity().findViewById(R.id.etBirth);
         etColorAn = getActivity().findViewById(R.id.etColorAn);
         etPlaceAn = getActivity().findViewById(R.id.etPlaceAn);
+        etPrice=getActivity().findViewById(R.id.etPrice);
         fbs=FireBaseServices.getInstance();
         btnAdd = getActivity().findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String type,gender,age,birthdate,color,place,Category;
+                String type,gender,age,birthdate,color,place,Category,price;
                 type=etType.getText().toString();
                 gender=etGender.getText().toString();
                 age=etAge.getText().toString();
@@ -105,14 +107,16 @@ public class AnimalFragment extends Fragment {
                 color= etColorAn.getText().toString();
                 place= etPlaceAn.getText().toString();
                 Category=etCategory.getText().toString();
+                price=etPrice.getText().toString();
+
 
                 if (type.trim().isEmpty()||gender.trim().isEmpty()||age.trim().isEmpty()||birthdate.trim().isEmpty()||
-                color.trim().isEmpty()||place.trim().isEmpty()||Category.trim().isEmpty())
+                color.trim().isEmpty()||place.trim().isEmpty()||Category.trim().isEmpty()||price.trim().isEmpty())
                 {
                     Toast.makeText(getActivity(), " some fields are empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Animals aml=new Animals(type,gender,age,birthdate,color,place,Category);
+                Animals aml=new Animals(type,gender,age,birthdate,color,place,Category,price);
                 fbs.getFire().collection("animals").add(aml).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {

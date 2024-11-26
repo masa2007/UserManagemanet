@@ -7,10 +7,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
     private Object EdgeToEdge;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter AnimalAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private String myDataset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
-        gotoAnimalFragment();
+        gotoLoginFraqment();
+
     }
 
     private void gotoAnimalFragment() {

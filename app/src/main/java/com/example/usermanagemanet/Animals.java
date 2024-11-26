@@ -7,8 +7,9 @@ package com.example.usermanagemanet;
         private String BirthOfDate;
         private  String color;
         private  String place;
+        private  int price;
 
-        public Animals(String type, String gender, String age, String birthdate, String color, String place, String category) {
+        public Animals(String type, String gender, String age, String birthdate, String color, String place, String category, String price) {
         }
 
         public Animals(String type, String gender, String age, String birthOfDate, String color, String place) {
@@ -18,6 +19,7 @@ package com.example.usermanagemanet;
             BirthOfDate = birthOfDate;
             this.color = color;
             this.place = place;
+            this.price = price;
         }
 
         @Override
@@ -29,6 +31,7 @@ package com.example.usermanagemanet;
                     ", BirthOfDate='" + BirthOfDate + '\'' +
                     ", color='" + color + '\'' +
                     ", place='" + place + '\'' +
+                    ", price='" + price+ '\'' +
                     '}';
         }
 
@@ -60,6 +63,10 @@ package com.example.usermanagemanet;
             return age;
         }
 
+        public int getprice() {
+            return price;
+        }
+
         public void setAge(String age) {
             this.age = age;
         }
@@ -79,5 +86,10 @@ package com.example.usermanagemanet;
         public void setType(String type) {
             this.type = type;
         }
+
+        public void setPrice(int price) {
+            this.price = price;
+        }
+
     }
 
