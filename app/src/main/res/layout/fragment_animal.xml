@@ -8,109 +8,104 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/etBirth"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:hint="Brthday..."
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/etColorAn"
-            app:layout_constraintEnd_toEndOf="@+id/etColorAn"
-            app:layout_constraintStart_toStartOf="@+id/etColorAn"
-            app:layout_constraintTop_toBottomOf="@+id/etTypeAn"
-            tools:ignore="NotSibling" />
-
-        <TextView
-            android:id="@+id/etColorAn"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="33dp"
-            android:hint="Color"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/etAgeAn"
-            app:layout_constraintEnd_toEndOf="@+id/etAgeAn"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/etAgeAn"
-            app:layout_constraintTop_toBottomOf="@+id/etBirth" />
-
-        <TextView
+        <EditText
             android:id="@+id/etTypeAn"
-            android:layout_width="208dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="86dp"
-            android:layout_marginEnd="118dp"
-            android:layout_marginBottom="30dp"
-            android:hint="AnimalType.."
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/etBirth"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:hint="Animal Type..."
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
+        <EditText
+            android:id="@+id/etBirth"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:hint="Birthday..."
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etTypeAn"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/etColorAn"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:hint="Color..."
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etBirth"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
             android:id="@+id/etAgeAn"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="28dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
             android:hint="Age..."
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/etGenderAn"
-            app:layout_constraintEnd_toEndOf="@+id/etGenderAn"
-            app:layout_constraintStart_toStartOf="@+id/etGenderAn"
-            app:layout_constraintTop_toBottomOf="@+id/etColorAn" />
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etColorAn"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
+        <EditText
             android:id="@+id/etGenderAn"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="27dp"
-            android:hint="gender.."
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/etPlaceAn"
-            app:layout_constraintEnd_toEndOf="@+id/etPlaceAn"
-            app:layout_constraintStart_toStartOf="@+id/etPlaceAn"
-            app:layout_constraintTop_toBottomOf="@+id/etAgeAn" />
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:hint="Gender..."
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etAgeAn"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
+        <EditText
             android:id="@+id/etPlaceAn"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="83dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
             android:hint="Place..."
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
-            app:layout_constraintEnd_toEndOf="@+id/etTypeAn"
-            app:layout_constraintStart_toStartOf="@+id/etTypeAn"
-            app:layout_constraintTop_toBottomOf="@+id/etGenderAn" />
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etGenderAn"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:hint="Price..."
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPlaceAn"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/btnAdd"
-            android:layout_width="117dp"
-            android:layout_height="37dp"
-            android:layout_marginBottom="182dp"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
             android:text="Add"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPlaceAn"
+            app:layout_constraintTop_toBottomOf="@id/etPrice"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
-            android:id="@+id/etPrice"
-            android:layout_width="201dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="122dp"
-            android:layout_marginBottom="32dp"
-            android:hint="price.."
-            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPlaceAn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

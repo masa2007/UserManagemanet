@@ -33,9 +33,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        gotoLoginFraqment();
+        gotoAnimalFragment();
 
     }
+
 
     private void gotoAnimalFragment() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
@@ -49,4 +50,5 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.FrameLayoutFrame,new LoginFragment());
         ft.commit();
     }
+
 }

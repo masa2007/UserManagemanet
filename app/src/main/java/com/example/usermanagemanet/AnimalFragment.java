@@ -1,6 +1,5 @@
 package com.example.usermanagemanet;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +29,6 @@ public class AnimalFragment extends Fragment {
     private EditText etColorAn;
     private EditText etPlaceAn;
     private EditText etPrice;
-    private Button btnAdd;
     private FireBaseServices fbs;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -85,8 +83,7 @@ public class AnimalFragment extends Fragment {
         connectComponents();
     }
 
-    @SuppressLint("WrongViewCast")
-    private void connectComponents() {
+    public void connectComponents() {
         etType = getActivity().findViewById(R.id.etTypeAn);
         etGender = getActivity().findViewById(R.id.etGenderAn);
         etAge = getActivity().findViewById(R.id.etAgeAn);
@@ -95,7 +92,7 @@ public class AnimalFragment extends Fragment {
         etPlaceAn = getActivity().findViewById(R.id.etPlaceAn);
         etPrice=getActivity().findViewById(R.id.etPrice);
         fbs=FireBaseServices.getInstance();
-        btnAdd = getActivity().findViewById(R.id.btnAdd);
+        Button btnAdd = getActivity().findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
