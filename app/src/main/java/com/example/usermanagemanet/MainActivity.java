@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter AnimalAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String myDataset;
+    private String[] myDataset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,22 +25,21 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
-        });
+        });;
     }
 
 
     @Override
     protected void onStart() {
         super.onStart();
-        gotoAnimalFragment();
+        gotoAddAnimalFragment();
 
     }
 
 
-    private void gotoAnimalFragment() {
+    private void gotoAddAnimalFragment() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutFrame,new AnimalFragment());
+        ft.replace(R.id.FrameLayoutFrame,new AddAnimalFragment());
         ft.commit();
 
     }

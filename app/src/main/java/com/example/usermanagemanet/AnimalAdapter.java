@@ -17,6 +17,16 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
     private FireBaseServices fbs;
 
 
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+        TextView tvType, tvPrice;
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvType=itemView.findViewById(R.id.tvAnimaltype);
+            tvPrice=itemView.findViewById(R.id.tvAnimalPrice);
+
+        }
+    }
+
     public AnimalAdapter(Context context, ArrayList<Animals> restList) {
         this.context = context;
         this.amlList = amlList;
@@ -42,13 +52,5 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
         return amlList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView tvType, tvPrice;
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvType=itemView.findViewById(R.id.tvAnimaltype);
-            tvPrice=itemView.findViewById(R.id.tvAnimalPrice);
 
-        }
-    }
 }

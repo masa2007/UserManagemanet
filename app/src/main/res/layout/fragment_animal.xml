@@ -24,7 +24,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/etBirth"
+            android:id="@+id/etBirthAn"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
@@ -44,7 +44,7 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etBirth"
+            app:layout_constraintTop_toBottomOf="@id/etBirthAn"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText

@@ -12,14 +12,14 @@ package com.example.usermanagemanet;
         public Animals(String type, String gender, String age, String birthdate, String color, String place, String category, String price) {
         }
 
-        public Animals(String type, String gender, String age, String birthOfDate, String color, String place) {
+        public Animals(String type, String gender, String age, String birthOfDate, String color, String place, String price) {
             this.type = type;
             this.gender = gender;
             this.age = age;
             BirthOfDate = birthOfDate;
             this.color = color;
             this.place = place;
-            this.price = price;
+            this.price = this.price;
         }
 
         @Override

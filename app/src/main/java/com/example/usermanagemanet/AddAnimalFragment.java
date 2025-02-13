@@ -1,6 +1,7 @@
 package com.example.usermanagemanet;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,18 +18,20 @@ import com.google.firebase.firestore.DocumentReference;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AnimalFragment#newInstance} factory method to
+ * Use the {@link AddAnimalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AnimalFragment extends Fragment {
+public class AddAnimalFragment extends Fragment {
 
-    private EditText etType ,etCategory;
+
+    private EditText etType ;
     private EditText etGender;
     private EditText etAge;
     private EditText etBirthdate;
     private EditText etColorAn;
     private EditText etPlaceAn;
     private EditText etPrice;
+    private Button btnAdd;
     private FireBaseServices fbs;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -40,7 +43,7 @@ public class AnimalFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AnimalFragment() {
+    public AddAnimalFragment() {
         // Required empty public constructor
     }
 
@@ -54,8 +57,8 @@ public class AnimalFragment extends Fragment {
      * @return A new instance of fragment AnimalFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AnimalFragment newInstance(String param1, String param2) {
-        AnimalFragment fragment = new AnimalFragment();
+    public static AddAnimalFragment newInstance(String param1, String param2) {
+        AddAnimalFragment fragment = new AddAnimalFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -83,45 +86,55 @@ public class AnimalFragment extends Fragment {
         connectComponents();
     }
 
-    public void connectComponents() {
-        etType = getActivity().findViewById(R.id.etTypeAn);
-        etGender = getActivity().findViewById(R.id.etGenderAn);
-        etAge = getActivity().findViewById(R.id.etAgeAn);
-        etBirthdate = getActivity().findViewById(R.id.etBirth);
-        etColorAn = getActivity().findViewById(R.id.etColorAn);
-        etPlaceAn = getActivity().findViewById(R.id.etPlaceAn);
-        etPrice=getActivity().findViewById(R.id.etPrice);
+
+   private void connectComponents() {
+        if (getView() == null) {
+            Log.e("AnimalFragment", "View is null, cannot initialize components");
+            return;
+        }
+
+
         fbs=FireBaseServices.getInstance();
-        Button btnAdd = getActivity().findViewById(R.id.btnAdd);
+        etType = getView().findViewById(R.id.etTypeAn);
+        etGender = getView().findViewById(R.id.etGenderAn);
+        etAge = getView().findViewById(R.id.etAgeAn);
+        etBirthdate = getView().findViewById(R.id.etBirthAn);
+        etColorAn = getView().findViewById(R.id.etColorAn);
+        etPlaceAn = getView().findViewById(R.id.etPlaceAn);
+        etPrice=getView().findViewById(R.id.etPrice);
+        btnAdd = getView().findViewById(R.id.btnAdd);
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String type,gender,age,birthdate,color,place,Category,price;
+            public void onClick(View view) {
+                String type,gender,age,birthdate,color,place,price;
                 type=etType.getText().toString();
                 gender=etGender.getText().toString();
                 age=etAge.getText().toString();
                 birthdate=etBirthdate.getText().toString();
                 color= etColorAn.getText().toString();
                 place= etPlaceAn.getText().toString();
-                Category=etCategory.getText().toString();
                 price=etPrice.getText().toString();
 
 
                 if (type.trim().isEmpty()||gender.trim().isEmpty()||age.trim().isEmpty()||birthdate.trim().isEmpty()||
-                color.trim().isEmpty()||place.trim().isEmpty()||Category.trim().isEmpty()||price.trim().isEmpty())
+                color.trim().isEmpty()||place.trim().isEmpty() ||price.trim().isEmpty())
                 {
                     Toast.makeText(getActivity(), " some fields are empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Animals aml=new Animals(type,gender,age,birthdate,color,place,Category,price);
+                Animals aml=new Animals(type,gender,age,birthdate,color,place,price);
                 fbs.getFire().collection("animals").add(aml).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(getActivity(), "Successfully added your animal!", Toast.LENGTH_SHORT).show();
 
                     }
+
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Log.e("Failure Add animal: ", e.getMessage());
 
                     }
                 });

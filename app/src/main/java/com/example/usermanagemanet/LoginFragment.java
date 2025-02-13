@@ -148,7 +148,7 @@ public class LoginFragment extends Fragment {
 
     private void gotoAnimalFragment() {
         FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutFrame,new AnimalFragment());
+        ft.replace(R.id.FrameLayoutFrame,new AddAnimalFragment());
         ft.commit();
 
     }
