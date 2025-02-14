@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHolder> {
     Context context;
-    ArrayList<Animals> amlList;
+    ArrayList<Animal> amlList;
     private FireBaseServices fbs;
 
 
@@ -27,7 +27,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
         }
     }
 
-    public AnimalAdapter(Context context, ArrayList<Animals> restList) {
+    public AnimalAdapter(Context context, ArrayList<Animal> restList) {
         this.context = context;
         this.amlList = amlList;
         this.fbs = FireBaseServices.getInstance();
@@ -42,7 +42,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull AnimalAdapter.MyViewHolder holder, int position) {
-        Animals aml = amlList.get(position);
+        Animal aml = amlList.get(position);
         holder.tvType.setText(aml.getType());
         holder.tvPrice.setText(aml.getprice());
     }

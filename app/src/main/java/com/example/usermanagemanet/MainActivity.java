@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        gotoAddAnimalFragment();
+        gotoAllAnimalFragment();
 
     }
 
 
-    private void gotoAddAnimalFragment() {
+    private void gotoAllAnimalFragment() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutFrame,new AddAnimalFragment());
         ft.commit();

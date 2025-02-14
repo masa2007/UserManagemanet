@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -86,13 +87,18 @@ public class AddAnimalFragment extends Fragment {
         connectComponents();
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //connectComponents( );
+    }
 
-   private void connectComponents() {
+
+    private void connectComponents() {
         if (getView() == null) {
             Log.e("AnimalFragment", "View is null, cannot initialize components");
             return;
         }
-
 
         fbs=FireBaseServices.getInstance();
         etType = getView().findViewById(R.id.etTypeAn);
@@ -123,7 +129,7 @@ public class AddAnimalFragment extends Fragment {
                     Toast.makeText(getActivity(), " some fields are empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Animals aml=new Animals(type,gender,age,birthdate,color,place,price);
+                Animal aml=new Animal(type,gender,age,birthdate,color,place,price);
                 fbs.getFire().collection("animals").add(aml).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {

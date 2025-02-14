@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class AllAnimalFragment extends Fragment {
 
     private FireBaseServices fbs;
-    private ArrayList<Animals>amllist;
+    private ArrayList<Animal>amllist;
     private RecyclerView rvAnimal;
     private AnimalAdapter adapter;
 
@@ -93,7 +93,7 @@ public class AllAnimalFragment extends Fragment {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
                 for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
-                    Animals aml = dataSnapshot.toObject(Animals.class);
+                    Animal aml = dataSnapshot.toObject(Animal.class);
 
                     amllist.add(aml);
                 }

@@ -1,6 +1,6 @@
 package com.example.usermanagemanet;
 
-    public class Animals {
+    public class Animal {
         private String type;
         private String gender;
         private  String age;
@@ -9,10 +9,10 @@ package com.example.usermanagemanet;
         private  String place;
         private  int price;
 
-        public Animals(String type, String gender, String age, String birthdate, String color, String place, String category, String price) {
+        public Animal(String type, String gender, String age, String birthdate, String color, String place, String category, String price) {
         }
 
-        public Animals(String type, String gender, String age, String birthOfDate, String color, String place, String price) {
+        public Animal(String type, String gender, String age, String birthOfDate, String color, String place, String price) {
             this.type = type;
             this.gender = gender;
             this.age = age;
@@ -71,17 +71,16 @@ package com.example.usermanagemanet;
             this.age = age;
         }
 
-        public String getGender() {
-            return gender;
+        public String getType() {
+            return type;
         }
+
+
 
         public void setGender(String gender) {
             this.gender = gender;
         }
 
-        public String getType() {
-            return type;
-        }
 
         public void setType(String type) {
             this.type = type;
