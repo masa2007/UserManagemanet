@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ import com.google.firebase.firestore.DocumentReference;
  */
 public class AddAnimalFragment extends Fragment {
 
-
+    ImageView img;
     private EditText etType ;
     private EditText etGender;
     private EditText etAge;

@@ -1,6 +1,7 @@
 package com.example.usermanagemanet;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,6 +81,10 @@ public class LoginFragment extends Fragment {
 
     public void onStart(){
         super.onStart();
+        if (getView() == null) {
+            Log.e("LoginFragment", "Error: View is null!");
+            return;
+        }
         //connecting components
         fbs=FireBaseServices.getInstance();
         etUsername=getView().findViewById(R.id.etUsernameLogin);
