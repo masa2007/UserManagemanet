@@ -12,11 +12,11 @@ package com.example.usermanagemanet;
         public Animal(String type, String gender, String age, String birthdate, String color, String place, String category, String price) {
         }
 
-        public Animal(String type, String gender, String age, String birthOfDate, String color, String place, String price) {
+        public Animal(String type, String gender, String age,  String color, String place, String price) {
             this.type = type;
             this.gender = gender;
             this.age = age;
-            BirthOfDate = birthOfDate;
+
             this.color = color;
             this.place = place;
             this.price = this.price;
@@ -28,7 +28,6 @@ package com.example.usermanagemanet;
                     "type='" + type + '\'' +
                     ", gender='" + gender + '\'' +
                     ", age='" + age + '\'' +
-                    ", BirthOfDate='" + BirthOfDate + '\'' +
                     ", color='" + color + '\'' +
                     ", place='" + place + '\'' +
                     ", price='" + price+ '\'' +
@@ -55,9 +54,7 @@ package com.example.usermanagemanet;
             return BirthOfDate;
         }
 
-        public void setBirthOfDate(String birthOfDate) {
-            BirthOfDate = birthOfDate;
-        }
+
 
         public String getAge() {
             return age;

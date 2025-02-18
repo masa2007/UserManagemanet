@@ -32,17 +32,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        gotoLoginFraqment();
+        gotoAllAnimalFraqment();
 
     }
 
-
-    private void gotoAllAnimalFragment() {
+    private void gotoAllAnimalFraqment() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutFrame,new AddAnimalFragment());
         ft.commit();
-
     }
+
+
+    private void gotoAddAnimalFraqment() {
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutFrame,new AddAnimalFragment());
+        ft.commit();
+    }
+
+
+
+
 
     private void gotoLoginFraqment() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();

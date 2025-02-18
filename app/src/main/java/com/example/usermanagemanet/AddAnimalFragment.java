@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,7 +30,6 @@ public class AddAnimalFragment extends Fragment {
     private EditText etType ;
     private EditText etGender;
     private EditText etAge;
-    private EditText etBirthdate;
     private EditText etColorAn;
     private EditText etPlaceAn;
     private EditText etPrice;
@@ -105,7 +105,6 @@ public class AddAnimalFragment extends Fragment {
         etType = getView().findViewById(R.id.etTypeAn);
         etGender = getView().findViewById(R.id.etGenderAn);
         etAge = getView().findViewById(R.id.etAgeAn);
-        etBirthdate = getView().findViewById(R.id.etBirthAn);
         etColorAn = getView().findViewById(R.id.etColorAn);
         etPlaceAn = getView().findViewById(R.id.etPlaceAn);
         etPrice=getView().findViewById(R.id.etPrice);
@@ -118,23 +117,30 @@ public class AddAnimalFragment extends Fragment {
                 type=etType.getText().toString();
                 gender=etGender.getText().toString();
                 age=etAge.getText().toString();
-                birthdate=etBirthdate.getText().toString();
                 color= etColorAn.getText().toString();
                 place= etPlaceAn.getText().toString();
                 price=etPrice.getText().toString();
 
 
-                if (type.trim().isEmpty()||gender.trim().isEmpty()||age.trim().isEmpty()||birthdate.trim().isEmpty()||
+                if (type.trim().isEmpty()||gender.trim().isEmpty()||age.trim().isEmpty()||
                 color.trim().isEmpty()||place.trim().isEmpty() ||price.trim().isEmpty())
                 {
                     Toast.makeText(getActivity(), " some fields are empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Animal aml=new Animal(type,gender,age,birthdate,color,place,price);
+                Animal aml=new Animal(type,gender,age,color,place,price);
                 fbs.getFire().collection("animals").add(aml).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(getActivity(), "Successfully added your animal!", Toast.LENGTH_SHORT).show();
+                        gotoAllAnimalFragment();
+
+                    }
+
+                    private void gotoAllAnimalFragment() {
+                        FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.FrameLayoutFrame,new AllAnimalFragment());
+                        ft.commit();
 
                     }
 
@@ -145,6 +151,8 @@ public class AddAnimalFragment extends Fragment {
 
                     }
                 });
+
+
 
 
             }
