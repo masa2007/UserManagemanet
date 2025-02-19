@@ -27,7 +27,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
         }
     }
 
-    public AnimalAdapter(Context context, ArrayList<Animal> restList) {
+    public AnimalAdapter(Context context, ArrayList<Animal> amlList) {
         this.context = context;
         this.amlList = amlList;
         this.fbs = FireBaseServices.getInstance();
@@ -44,7 +44,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
     public void onBindViewHolder(@NonNull AnimalAdapter.MyViewHolder holder, int position) {
         Animal aml = amlList.get(position);
         holder.tvType.setText(aml.getType());
-        holder.tvPrice.setText(aml.getprice());
+        holder.tvPrice.setText(String.valueOf(aml.getprice()));
     }
 
     @Override

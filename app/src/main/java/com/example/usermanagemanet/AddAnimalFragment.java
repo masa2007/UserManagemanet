@@ -96,10 +96,7 @@ public class AddAnimalFragment extends Fragment {
 
 
     private void connectComponents() {
-        if (getView() == null) {
-            Log.e("AnimalFragment", "View is null, cannot initialize components");
-            return;
-        }
+
 
         fbs=FireBaseServices.getInstance();
         etType = getView().findViewById(R.id.etTypeAn);

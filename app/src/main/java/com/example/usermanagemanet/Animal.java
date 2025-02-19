@@ -9,17 +9,16 @@ package com.example.usermanagemanet;
         private  String place;
         private  int price;
 
-        public Animal(String type, String gender, String age, String birthdate, String color, String place, String category, String price) {
+        public Animal() {
         }
 
         public Animal(String type, String gender, String age,  String color, String place, String price) {
             this.type = type;
             this.gender = gender;
             this.age = age;
-
             this.color = color;
             this.place = place;
-            this.price = this.price;
+            this.price = Integer.parseInt(price);
         }
 
         @Override

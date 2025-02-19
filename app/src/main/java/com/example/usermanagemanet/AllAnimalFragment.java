@@ -84,10 +84,10 @@ public class AllAnimalFragment extends Fragment {
         fbs = FireBaseServices.getInstance();
         amllist = new ArrayList<>();
         rvAnimal = getView().findViewById(R.id.rvAnimalAmlFragment);
-        adapter = new AnimalAdapter(getActivity(), amllist);
-        rvAnimal.setAdapter(adapter);
         rvAnimal.setHasFixedSize(true);
         rvAnimal.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new AnimalAdapter(getActivity(), amllist);
+        rvAnimal.setAdapter(adapter);
         fbs.getFire().collection("animals").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
