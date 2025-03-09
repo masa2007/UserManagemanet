@@ -16,7 +16,6 @@ package com.example.usermanagemanet;
             this.type = type;
             this.gender = gender;
             this.age = age;
-
             this.color = color;
             this.place = place;
             this.price = this.price;

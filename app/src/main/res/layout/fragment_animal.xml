@@ -104,14 +104,14 @@
             android:text="insert a image:->"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/ivCarAddCarFragment"
-            app:layout_constraintEnd_toStartOf="@+id/ivCarAddCarFragment"
+            app:layout_constraintBottom_toTopOf="@+id/ivamlAddamlFragment"
+            app:layout_constraintEnd_toStartOf="@+id/ivamlAddamlFragment"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPrice"
             tools:ignore="MissingConstraints" />
 
         <ImageView
-            android:id="@+id/ivCarAddCarFragment"
+            android:id="@+id/ivamlAddamlFragment"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="20dp"

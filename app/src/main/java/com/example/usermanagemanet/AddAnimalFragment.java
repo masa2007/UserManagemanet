@@ -1,6 +1,9 @@
 package com.example.usermanagemanet;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -109,6 +112,16 @@ public class AddAnimalFragment extends Fragment {
         etPlaceAn = getView().findViewById(R.id.etPlaceAn);
         etPrice=getView().findViewById(R.id.etPrice);
         btnAdd = getView().findViewById(R.id.btnAdd);
+        img=getView().findViewById(R.id.ivamlAddamlFragment);
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openGallery();
+            }
+
+        });
+
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +150,16 @@ public class AddAnimalFragment extends Fragment {
 
                     }
 
+                    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+                        super.onActivityResult(requestCode, resultCode, data);
+
+                        if (requestCode == 123 && resultCode == getActivity().RESULT_OK && data != null) {
+                            Uri selectedImageUri = data.getData();
+                            img.setImageURI(selectedImageUri);
+                            utils.uploadImage(getActivity(), selectedImageUri);
+                        }
+                    }
+
                     private void gotoAllAnimalFragment() {
                         FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
                         ft.replace(R.id.FrameLayoutFrame,new AllAnimalFragment());
@@ -151,12 +174,23 @@ public class AddAnimalFragment extends Fragment {
 
                     }
                 });
-
-
-
-
             }
-
         });
+
+    }
+
+    private void openGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, 123);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 123&& resultCode == getActivity().RESULT_OK && data != null) {
+            Uri selectedImageUri = data.getData();
+            img.setImageURI(selectedImageUri);
+            Object utils;
+            utils.uploadImage(getActivity(), selectedImageUri);
+        }
     }
 }

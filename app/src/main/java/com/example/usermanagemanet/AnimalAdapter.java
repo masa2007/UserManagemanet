@@ -27,7 +27,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
         }
     }
 
-    public AnimalAdapter(Context context, ArrayList<Animal> restList) {
+    public AnimalAdapter(Context context, ArrayList<Animal> amlList) {
         this.context = context;
         this.amlList = amlList;
         this.fbs = FireBaseServices.getInstance();
