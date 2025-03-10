@@ -1,5 +1,6 @@
 package com.example.usermanagemanet;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ public class AllAnimalFragment extends Fragment {
     private ArrayList<Animal>amllist;
     private RecyclerView rvAnimal;
     private AnimalAdapter adapter;
+    private Image img;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

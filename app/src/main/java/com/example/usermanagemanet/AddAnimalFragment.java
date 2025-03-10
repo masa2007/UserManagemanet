@@ -29,6 +29,8 @@ import com.google.firebase.firestore.DocumentReference;
  */
 public class AddAnimalFragment extends Fragment {
 
+    private static final int GALLERY_REQUEST_CODE = 123;
+    private String imageStr;
     ImageView img;
     private EditText etType ;
     private EditText etGender;
@@ -38,6 +40,8 @@ public class AddAnimalFragment extends Fragment {
     private EditText etPrice;
     private Button btnAdd;
     private FireBaseServices fbs;
+    private Utils utils;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -101,15 +105,16 @@ public class AddAnimalFragment extends Fragment {
     private void connectComponents() {
 
 
-        fbs=FireBaseServices.getInstance();
+        fbs = FireBaseServices.getInstance();
+        utils = Utils.getInstance();
         etType = getView().findViewById(R.id.etTypeAn);
         etGender = getView().findViewById(R.id.etGenderAn);
         etAge = getView().findViewById(R.id.etAgeAn);
         etColorAn = getView().findViewById(R.id.etColorAn);
         etPlaceAn = getView().findViewById(R.id.etPlaceAn);
-        etPrice=getView().findViewById(R.id.etPrice);
+        etPrice = getView().findViewById(R.id.etPrice);
         btnAdd = getView().findViewById(R.id.btnAdd);
-        img=getView().findViewById(R.id.ivamlAddamlFragment);
+        img = getView().findViewById(R.id.ivamlAddamlFragment);
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,10 +125,12 @@ public class AddAnimalFragment extends Fragment {
         });
 
 
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String type,gender,age,birthdate,color,place,price;
+                String type,gender,age,color,place,price;
+                utils = Utils.getInstance();
                 type=etType.getText().toString();
                 gender=etGender.getText().toString();
                 age=etAge.getText().toString();
@@ -146,16 +153,7 @@ public class AddAnimalFragment extends Fragment {
                         gotoAllAnimalFragment();
 
                     }
-
-                    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-                        super.onActivityResult(requestCode, resultCode, data);
-
-                        if (requestCode == 123 && resultCode == getActivity().RESULT_OK && data != null) {
-                            Uri selectedImageUri = data.getData();
-                            img.setImageURI(selectedImageUri);
-                            utils.uploadImage(getActivity(), selectedImageUri);
-                        }
-                    }
+                    
 
                     private void gotoAllAnimalFragment() {
                         FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
@@ -178,16 +176,20 @@ public class AddAnimalFragment extends Fragment {
 
     private void openGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(galleryIntent, 123);
+        startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE);
     }
+
+
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 123&& resultCode == getActivity().RESULT_OK && data != null) {
+        if (requestCode == GALLERY_REQUEST_CODE && resultCode == getActivity().RESULT_OK && data != null) {
             Uri selectedImageUri = data.getData();
             img.setImageURI(selectedImageUri);
-            Object utils;
             utils.uploadImage(getActivity(), selectedImageUri);
         }
     }
+
 }
