@@ -138,12 +138,19 @@ public class AddAnimalFragment extends Fragment {
                 place= etPlaceAn.getText().toString();
                 price=etPrice.getText().toString();
 
-
                 if (type.trim().isEmpty()||gender.trim().isEmpty()||age.trim().isEmpty()||
                 color.trim().isEmpty()||place.trim().isEmpty() ||price.trim().isEmpty())
                 {
                     Toast.makeText(getActivity(), " some fields are empty", Toast.LENGTH_SHORT).show();
                     return;
+                }
+                if (fbs.getSelectedImageURL() == null)
+                {
+                    Animal aml= new Animal(type, gender, age, color ,place,price);
+                }
+                else {
+                    Animal aml= new Animal(type, gender, age, color ,place,price,fbs.getSelectedImageURL().toString());
+
                 }
                 Animal aml=new Animal(type,gender,age,color,place,price);
                 fbs.getFire().collection("animals").add(aml).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
