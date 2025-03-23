@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -18,6 +21,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
+        public ImageView ivAnimal;
         TextView tvType, tvPrice;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -45,6 +49,13 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
         Animal aml = amlList.get(position);
         holder.tvType.setText(aml.getType());
         holder.tvPrice.setText(String.valueOf(aml.getprice()));
+        if (aml.getPhoto() == null || aml.getPhoto().isEmpty())
+        {
+            Picasso.get().load(R.drawable.ic_launcher_background).into(holder.ivAnimal);
+        }
+        else {
+            Picasso.get().load(aml.getPhoto()).into(holder.ivAnimal);
+        }
     }
 
     @Override

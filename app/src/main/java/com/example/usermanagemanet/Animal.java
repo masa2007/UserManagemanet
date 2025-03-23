@@ -21,6 +21,7 @@ public class Animal {
             this.color = color;
             this.place = place;
             this.price = Integer.parseInt(price);
+            this.photo=photo;
         }
 
         @Override
