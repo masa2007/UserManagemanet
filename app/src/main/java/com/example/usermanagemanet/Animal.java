@@ -1,6 +1,11 @@
 package com.example.usermanagemanet;
 
-public class Animal {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class Animal  implements Parcelable {
         private String type;
         private String gender;
         private  String age;
@@ -24,7 +29,30 @@ public class Animal {
             this.photo=photo;
         }
 
+    protected Animal(Parcel in) {
+        type = in.readString();
+        gender = in.readString();
+        age = in.readString();
+        BirthOfDate = in.readString();
+        color = in.readString();
+        place = in.readString();
+        price = in.readInt();
+        photo = in.readString();
+    }
+
+    public static final Creator<Animal> CREATOR = new Creator<Animal>() {
         @Override
+        public Animal createFromParcel(Parcel in) {
+            return new Animal(in);
+        }
+
+        @Override
+        public Animal[] newArray(int size) {
+            return new Animal[size];
+        }
+    };
+
+    @Override
         public String toString() {
             return "Animals{" +
                     "type='" + type + '\'' +
@@ -98,5 +126,20 @@ public class Animal {
             this.price = price;
         }
 
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(type);
+        dest.writeString(gender);
+        dest.writeString(age);
+        dest.writeString(BirthOfDate);
+        dest.writeString(color);
+        dest.writeString(place);
+        dest.writeInt(price);
+        dest.writeString(photo);
     }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+}
 

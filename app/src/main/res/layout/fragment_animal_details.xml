@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnimalDetailsFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- ImageView for Animal Image -->
+
+    <ImageView
+        android:id="@+id/ivAnimalDetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:clickable="true"
+        android:scaleType="fitCenter"
+        android:contentDescription="Animal Image"
+        android:onClick="toBigImg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+    </LinearLayout>
+
+    <!-- Animal Type -->
+    <TextView
+        android:id="@+id/tvTypeDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type:"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvTypeDetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-20dp"/>
+
+
+    <!-- Animal Gender -->
+    <TextView
+        android:id="@+id/tvGenderDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gender:"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvGenderDetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gender"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-20dp"/>
+
+    <!-- Animal Age -->
+    <TextView
+        android:id="@+id/tvAgeDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Age :"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvAgeDetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Age"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-20dp"/>
+
+    <!--  Animal BirthOfDate -->
+    <TextView
+        android:id="@+id/tvBirthOfDateDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BirthOfDate:"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvBirthOfDateDetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="BirthOfDate"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-20dp"/>
+
+    <!-- Animal HomePlace -->
+    <TextView
+        android:id="@+id/tvPlaceDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="place:"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvPlaceDetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="place"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-20dp"/>
+
+    <!--  Animal Color -->
+    <TextView
+        android:id="@+id/tvColorDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color :"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvColorDetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Color"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-20dp"/>
+
+    <!--  Animal Price -->
+    <TextView
+        android:id="@+id/tvPriceDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvPriceDetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-20dp"/>
+
+
+   </LinearLayout>
+</ScrollView>
