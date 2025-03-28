@@ -123,7 +123,7 @@ public class LoginFragment extends Fragment {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 Toast.makeText(getActivity(),"you are succefully logged in !",Toast.LENGTH_SHORT).show();
-                                gotoAnimalFragment();
+                                gotoAllAnimalFragment();
                             }
 
                         }
@@ -154,6 +154,12 @@ public class LoginFragment extends Fragment {
     private void gotoAnimalFragment() {
         FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutFrame,new AddAnimalFragment());
+        ft.commit();
+
+    }
+    private void gotoAllAnimalFragment() {
+        FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutFrame,new AllAnimalFragment());
         ft.commit();
 
     }

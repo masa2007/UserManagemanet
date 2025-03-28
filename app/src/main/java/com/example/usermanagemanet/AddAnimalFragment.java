@@ -162,4 +162,5 @@ public class AddAnimalFragment extends Fragment {
     public void toBigImg(View view) {
     }
 
+
 }
