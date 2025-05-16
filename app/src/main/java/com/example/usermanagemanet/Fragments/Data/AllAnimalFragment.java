@@ -1,4 +1,4 @@
-package com.example.usermanagemanet;
+package com.example.usermanagemanet.Fragments.Data;
 
 import android.media.Image;
 import android.os.Bundle;
@@ -13,12 +13,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import fragment.FireBaseServices;
+import com.example.usermanagemanet.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+
+import com.example.usermanagemanet.Fragments.Adapter.AnimalAdapter;
+import com.example.usermanagemanet.Fragments.Classes.Animal;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,6 +75,7 @@ public class AllAnimalFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            String filterType = getArguments().getString("buy-adopt");
         }
     }
 

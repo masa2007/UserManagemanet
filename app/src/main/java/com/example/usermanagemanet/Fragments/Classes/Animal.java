@@ -1,4 +1,4 @@
-package com.example.usermanagemanet;
+package com.example.usermanagemanet.Fragments.Classes;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -14,12 +14,13 @@ public class Animal  implements Parcelable {
         private  String place;
         private  int price;
         private String photo;
+        private String buy_adopt;
 
 
-    public Animal(String type, String gender, String age, String color, String place, String price) {
+    public Animal() {
         }
 
-        public Animal(String type, String gender, String age,  String color, String place, String price,String photo) {
+        public Animal(String type, String gender, String age,  String color, String place, String price,String photo,String buy_adopt) {
             this.type = type;
             this.gender = gender;
             this.age = age;
@@ -27,6 +28,7 @@ public class Animal  implements Parcelable {
             this.place = place;
             this.price = Integer.parseInt(price);
             this.photo=photo;
+            this.buy_adopt=buy_adopt;
         }
 
     protected Animal(Parcel in) {
@@ -38,6 +40,7 @@ public class Animal  implements Parcelable {
         place = in.readString();
         price = in.readInt();
         photo = in.readString();
+        buy_adopt = in.readString();
     }
 
     public static final Creator<Animal> CREATOR = new Creator<Animal>() {
@@ -62,13 +65,16 @@ public class Animal  implements Parcelable {
                     ", place='" + place + '\'' +
                     ", price='" + price+ '\'' +
                     ", photo='" + photo+ '\'' +
-
+                    ", buy_cell='" + buy_adopt+ '\'' +
                     '}';
         }
 
         public String getPlace() {
             return place;
         }
+    public String getAdopt() {
+        return buy_adopt;
+    }
 
     public String getPhoto() {
         return photo;
@@ -77,10 +83,13 @@ public class Animal  implements Parcelable {
         this.photo = photo;
     }
 
-        public void setPlace(String place) {
+    public void setPlace(String place) {
             this.place = place;
         }
 
+    public void setAdopt(String adopt) {
+        this.buy_adopt = buy_adopt;
+    }
         public String getColor() {
             return color;
         }
@@ -136,6 +145,7 @@ public class Animal  implements Parcelable {
         dest.writeString(place);
         dest.writeInt(price);
         dest.writeString(photo);
+        dest.writeString(buy_adopt);
     }
     @Override
     public int describeContents() {

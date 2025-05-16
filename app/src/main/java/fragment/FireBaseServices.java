@@ -1,4 +1,4 @@
-package com.example.usermanagemanet;
+package fragment;
 
 import android.net.Uri;
 
@@ -10,6 +10,7 @@ import com.google.firebase.storage.FirebaseStorage;
 public class FireBaseServices
 {
     private  static FireBaseServices instance ;
+
     private FirebaseAuth auth;
     private FirebaseFirestore fire;
     private FirebaseStorage storage;

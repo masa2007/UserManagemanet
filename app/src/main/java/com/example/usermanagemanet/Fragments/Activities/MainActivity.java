@@ -1,4 +1,4 @@
-package com.example.usermanagemanet;
+package com.example.usermanagemanet.Fragments.Activities;
 
 import android.os.Bundle;
 
@@ -8,6 +8,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.usermanagemanet.Fragments.Data.AddAnimalFragment;
+import com.example.usermanagemanet.Fragments.Data.AllAnimalFragment;
+
+import com.example.usermanagemanet.R;
+
+import fragment.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 

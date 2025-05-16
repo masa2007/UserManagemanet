@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragment.OfficialFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivBuy"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="74dp"
+            android:layout_marginEnd="74dp"
+            android:layout_marginBottom="18dp"
+            android:src="@drawable/buyimage"
+            app:layout_constraintBottom_toTopOf="@+id/ivAdopt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etTittle" />
+
+        <ImageView
+            android:id="@+id/ivAdopt"
+            android:layout_width="244dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="79dp"
+            android:src="@drawable/adoptimage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBuy" />
+
+        <TextView
+            android:id="@+id/etTittle"
+            android:layout_width="280dp"
+            android:layout_height="74dp"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="58dp"
+            android:layout_marginEnd="66dp"
+            android:layout_marginBottom="32dp"
+            android:text="welcome to Animallie"
+            android:textAlignment="center"
+            android:textColor="#EB910D"
+            android:textColorLink="#D58512"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/ivBuy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

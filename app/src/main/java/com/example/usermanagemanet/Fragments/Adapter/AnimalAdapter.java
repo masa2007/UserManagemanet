@@ -1,4 +1,4 @@
-package com.example.usermanagemanet;
+package com.example.usermanagemanet.Fragments.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.usermanagemanet.Fragments.Classes.Animal;
+import fragment.FireBaseServices;
+import com.example.usermanagemanet.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

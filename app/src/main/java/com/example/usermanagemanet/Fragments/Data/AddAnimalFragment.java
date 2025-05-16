@@ -1,4 +1,4 @@
-package com.example.usermanagemanet;
+package com.example.usermanagemanet.Fragments.Data;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,9 +9,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,18 +21,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.usermanagemanet.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
+
+import com.example.usermanagemanet.Fragments.Classes.Animal;
+import fragment.FireBaseServices;
+import fragment.Utils;
 
 
 public class AddAnimalFragment extends Fragment {
 
     private static final int PICK_IMAGE_REQUEST = 1;
-
     private ImageView imgView;
-
     private EditText etType ;
+    Spinner spinAdopt;
     private EditText etGender;
     private EditText etAge;
     private EditText etColorAn;
@@ -76,6 +82,13 @@ public class AddAnimalFragment extends Fragment {
         etPrice = getView().findViewById(R.id.etPrice);
         btnAdd = getView().findViewById(R.id.btnAdd);
         imgView = getView().findViewById(R.id.ivamlAddamlFragment);
+        spinAdopt= getView().findViewById(R.id.spinAdopt);//fetch the spinner from layout file
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, getResources()
+                .getStringArray(R.array.Adopt_array));//setting the country_array to spinner
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinAdopt.setAdapter(adapter);
+
 
         imgView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +103,7 @@ public class AddAnimalFragment extends Fragment {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String type,gender,age,color,place,price;
+                String type,gender,age,color,place,price,buy_adopt;
                 utils = Utils.getInstance();
                 type=etType.getText().toString();
                 gender=etGender.getText().toString();
@@ -98,22 +111,22 @@ public class AddAnimalFragment extends Fragment {
                 color= etColorAn.getText().toString();
                 place= etPlaceAn.getText().toString();
                 price=etPrice.getText().toString();
+                buy_adopt = spinAdopt.getSelectedItem().toString();
 
                 if (type.trim().isEmpty()||gender.trim().isEmpty()||age.trim().isEmpty()||
-                color.trim().isEmpty()||place.trim().isEmpty() ||price.trim().isEmpty())
+                color.trim().isEmpty()||place.trim().isEmpty() ||price.trim().isEmpty()|| buy_adopt.isEmpty())
                 {
                     Toast.makeText(getActivity(), " some fields are empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Animal aml;
-                if (fbs.getSelectedImageURL() == null)
-                {
-                     aml= new Animal(type, gender, age, color ,place,price);
-                }
-                else {
-                     aml= new Animal(type, gender, age, color ,place,price,fbs.getSelectedImageURL().toString());
 
+                if (fbs.getSelectedImageURL() == null) {
+                    Toast.makeText(getActivity(), "choose photo", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+                aml = new Animal(type, gender, age, color, place, price, buy_adopt, fbs.getSelectedImageURL().toString());
+
                 fbs.getFire().collection("animals").add(aml).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
