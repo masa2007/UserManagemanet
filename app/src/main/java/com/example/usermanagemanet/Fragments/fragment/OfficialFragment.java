@@ -1,17 +1,20 @@
-package fragment;
+package com.example.usermanagemanet.Fragments.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+
 import com.example.usermanagemanet.R;
 
 import com.example.usermanagemanet.Fragments.Data.AllAnimalFragment;
+import com.example.usermanagemanet.Fragments.Classes.CartFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +25,7 @@ public class OfficialFragment extends Fragment {
 
     private ImageView ivBuy;
     private ImageView ivAdopt;
+    private Button btnOpenCart;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,14 +72,29 @@ public class OfficialFragment extends Fragment {
         connectComponents();
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_official, container, false);
+        View view = inflater.inflate(R.layout.fragment_official, container, false);
+
+        Button btnOpenCart = view.findViewById(R.id.btnOpenCart);
+
+        btnOpenCart.setOnClickListener(v -> {
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.FrameLayoutFrame, new CartFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+        return view;
     }
 
     private void connectComponents() {
+
+
+
         ivBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

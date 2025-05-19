@@ -1,4 +1,4 @@
-package fragment;
+package com.example.usermanagemanet.Fragments.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.usermanagemanet.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,7 +24,7 @@ import com.google.firebase.auth.AuthResult;
  */
 public class SignupFragment extends Fragment {
 
-    private EditText etUsername,etPassword;
+    private EditText etUsername,etPassword,etConfirmPassword;
     private Button btnSignup;
     private FireBaseServices fbs;
 
@@ -79,7 +80,8 @@ public class SignupFragment extends Fragment {
         //connecting components
          fbs=FireBaseServices.getInstance();
          etUsername=getView().findViewById(R.id.etUsernameSignup);
-         etPassword=getView().findViewById(R.id.etPasswordSginup);
+         etPassword=getView().findViewById(R.id.etPasswordSignup);
+         etConfirmPassword=getView().findViewById(R.id.etConfirmPassword);
          btnSignup=getView().findViewById(R.id.btnSignupSignup);
          btnSignup.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -87,17 +89,26 @@ public class SignupFragment extends Fragment {
                  //data
                  String Username = etUsername.getText().toString();
                  String Password = etPassword.getText().toString();
-                 if (Username.trim().isEmpty() && Password.trim().isEmpty()) {
+                 String ConfirmPassword = etConfirmPassword.getText().toString();
+                 if (Username.trim().isEmpty() && Password.trim().isEmpty() ||ConfirmPassword.trim().isEmpty()) {
                      Toast.makeText(getActivity(), "some fields are empty", Toast.LENGTH_SHORT).show();
                      return;
                  }
+                 if (!Password.equals(ConfirmPassword)) {
+                     Toast.makeText(getActivity(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+                     return;
+                 }
+
                  //signup
                  fbs.getAuth().createUserWithEmailAndPassword(Username, Password).addOnSuccessListener(
                          new OnSuccessListener<AuthResult>() {
                              @Override
                              public void onSuccess(AuthResult authResult) {
                                  Toast.makeText(getActivity(),"success!",Toast.LENGTH_SHORT).show();
+                                 gotoofficialFragment();
                              }
+
+
                          }
                  ).addOnFailureListener(new OnFailureListener() {
                      @Override
@@ -106,6 +117,12 @@ public class SignupFragment extends Fragment {
 
                      }
                  });
+             }
+             private void gotoofficialFragment() {
+                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                 ft.replace(R.id.FrameLayoutFrame, new OfficialFragment());
+                 ft.commit();
+
              }
          });
      }

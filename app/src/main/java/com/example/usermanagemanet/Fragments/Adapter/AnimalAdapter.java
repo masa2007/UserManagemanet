@@ -4,18 +4,22 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.usermanagemanet.Fragments.Classes.Animal;
-import fragment.FireBaseServices;
+import com.example.usermanagemanet.Fragments.Classes.CartFragment;
 import com.example.usermanagemanet.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import com.example.usermanagemanet.Fragments.fragment.FireBaseServices;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHolder> {
     Context context;
@@ -26,10 +30,12 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         public ImageView ivAnimal;
         TextView tvType, tvPrice;
+        Button btnAddToCart;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvType=itemView.findViewById(R.id.tvAnimaltype);
             tvPrice=itemView.findViewById(R.id.tvAnimalPrice);
+            btnAddToCart=itemView.findViewById(R.id.addToCartButton);
 
         }
     }
@@ -59,6 +65,16 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
         else {
             Picasso.get().load(aml.getPhoto()).into(holder.ivAnimal);
         }
+
+        holder.btnAddToCart.setOnClickListener(v -> {
+            if (aml.getAdopt().equals("buy")) {
+                CartFragment.getInstance().addToCart(aml);
+                Toast.makeText(context, "animal  is in the cart", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "cannot add adopted animal to the cart", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

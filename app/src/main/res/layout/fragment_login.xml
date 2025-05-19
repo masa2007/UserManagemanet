@@ -1,95 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragment.LoginFragment">
+    tools:context=".Fragments.fragment.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/__2025_05_17__12_15_13"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="246dp"
+            android:layout_height="111dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="monospace"
+            android:text="All the animals here are happy to see you :)"
+            android:textAllCaps="true"
+            android:textColor="#009688"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@+id/etUsernameLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/etUsernameLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="101dp"
-            android:layout_marginTop="117dp"
-            android:layout_marginEnd="101dp"
-            android:layout_marginBottom="54dp"
+            android:layout_marginTop="135dp"
             android:ems="10"
             android:hint="username..."
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/etpasswordLogin"
+            android:textColor="#000000"
+            android:textColorHint="#55000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/etpasswordLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="54dp"
-            android:layout_marginEnd="101dp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginTop="41dp"
             android:ems="10"
             android:hint="password..."
             android:inputType="textPassword"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnLoginLogin"
+            android:textColor="#000000"
+            android:textColorHint="#55000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etUsernameLogin" />
-
-        <Button
-            android:id="@+id/btnLoginLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="160dp"
-            android:layout_marginBottom="342dp"
-            android:text="Login"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etpasswordLogin" />
-
-        <TextView
-            android:id="@+id/tvSignupLinkLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="177dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="168dp"
-            android:layout_marginBottom="239dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:minHeight="48dp"
-            android:text="SignUp..."
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLoginLogin" />
 
         <TextView
             android:id="@+id/etforgotpasswordLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="178dp"
-            android:layout_marginTop="39dp"
-            android:layout_marginEnd="176dp"
-            android:layout_marginBottom="102dp"
             android:text="Forgot password!"
-            app:layout_constraintBottom_toTopOf="@+id/btnLoginLogin"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etpasswordLogin" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnLoginLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="#000000"
+            android:text="Login"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="@+id/etforgotpasswordLogin"
+            app:layout_constraintTop_toBottomOf="@+id/etforgotpasswordLogin" />
+
+        <TextView
+            android:id="@+id/tvSignupLinkLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="136dp"
+            android:layout_marginBottom="102dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:text="SignUp..."
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

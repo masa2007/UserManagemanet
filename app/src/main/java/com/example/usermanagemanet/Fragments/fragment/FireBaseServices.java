@@ -1,4 +1,4 @@
-package fragment;
+package com.example.usermanagemanet.Fragments.fragment;
 
 import android.net.Uri;
 
@@ -10,27 +10,21 @@ import com.google.firebase.storage.FirebaseStorage;
 public class FireBaseServices
 {
     private  static FireBaseServices instance ;
-
     private FirebaseAuth auth;
     private FirebaseFirestore fire;
     private FirebaseStorage storage;
     private Uri selectedImageURL;
-
-
     public Uri getSelectedImageURL() {
         return selectedImageURL;
     }
-
     public void setSelectedImageURL(Uri selectedImageURL) {
         this.selectedImageURL = selectedImageURL;
     }
-
     public FireBaseServices(){
         auth=FirebaseAuth.getInstance();
         fire=FirebaseFirestore.getInstance();
         storage=FirebaseStorage.getInstance();
     }
-
     public static FireBaseServices getInstance() {
         if (instance==null)
         {
@@ -38,18 +32,13 @@ public class FireBaseServices
         }
         return  instance;
     }
-
     public FirebaseStorage getStorage() {
         return storage;
     }
-
     public FirebaseFirestore getFire() {
         return fire;
     }
-
     public FirebaseAuth getAuth() {
         return auth;
     }
-
-
 }

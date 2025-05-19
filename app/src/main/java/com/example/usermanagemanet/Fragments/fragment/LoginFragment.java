@@ -1,4 +1,4 @@
-package fragment;
+package com.example.usermanagemanet.Fragments.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -127,7 +127,7 @@ public class LoginFragment extends Fragment {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 Toast.makeText(getActivity(), "you are succefully logged in !", Toast.LENGTH_SHORT).show();
-                                gotoAllAnimalFragment();
+                                gotoofficialFragment();
                             }
 
                         }
@@ -145,6 +145,12 @@ public class LoginFragment extends Fragment {
     private void gotoSignupFragment() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutFrame, new SignupFragment());
+        ft.commit();
+
+    }
+    private void gotoofficialFragment() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutFrame, new OfficialFragment());
         ft.commit();
 
     }

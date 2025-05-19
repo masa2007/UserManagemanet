@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragment.OfficialFragment">
+    tools:context=".Fragments.fragment.OfficialFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -52,6 +52,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnOpenCart"
+            android:layout_width="164dp"
+            android:layout_height="52dp"
+            android:layout_margin="16dp"
+            android:background="#FF9800"
+            android:backgroundTint="#FF9800"
+            android:text=" show cart 🛒"
+            android:textColor="#EB910D"
+            android:textColorLink="#D58512"
+            app:strokeColor="#FF9800"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="663dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

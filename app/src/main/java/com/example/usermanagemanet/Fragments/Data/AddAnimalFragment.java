@@ -27,8 +27,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 
 import com.example.usermanagemanet.Fragments.Classes.Animal;
-import fragment.FireBaseServices;
-import fragment.Utils;
+import com.example.usermanagemanet.Fragments.fragment.FireBaseServices;
+import com.example.usermanagemanet.Fragments.fragment.Utils;
 
 
 public class AddAnimalFragment extends Fragment {
