@@ -19,7 +19,7 @@ import com.example.usermanagemanet.R;
 public class AnimalDetailsFragment extends Fragment {
 
     private TextView tvType,tvGender,tvColor,tvAge,
-            tvBirthOfDate,tvPlace,tvPrice;
+            tvPlace,tvPrice;
     private ImageView ivAnimal;
     private FireBaseServices fbs;
 
@@ -69,10 +69,11 @@ public class AnimalDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_animal_details, container, false);
+
     }
 
     @Override
-     public void onStart() {
+    public void onStart() {
         super.onStart();
         connectComponents();
 
@@ -91,5 +92,3 @@ public class AnimalDetailsFragment extends Fragment {
 
     }
 }
-
-

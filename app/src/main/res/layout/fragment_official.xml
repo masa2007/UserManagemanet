@@ -18,13 +18,13 @@
             android:layout_marginEnd="74dp"
             android:layout_marginBottom="18dp"
             android:src="@drawable/buyimage"
-            app:layout_constraintBottom_toTopOf="@+id/ivAdopt"
+            app:layout_constraintBottom_toTopOf="@+id/ivAddAnimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etTittle" />
 
         <ImageView
-            android:id="@+id/ivAdopt"
+            android:id="@+id/ivAddAnimal"
             android:layout_width="244dp"
             android:layout_height="0dp"
             android:layout_marginBottom="79dp"
@@ -56,16 +56,45 @@
         <Button
             android:id="@+id/btnOpenCart"
             android:layout_width="164dp"
-            android:layout_height="52dp"
+            android:layout_height="0dp"
             android:layout_margin="16dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginBottom="16dp"
             android:background="#FF9800"
             android:backgroundTint="#FF9800"
             android:text=" show cart 🛒"
-            android:textColor="#EB910D"
+            android:textColor="#4E342E"
             android:textColorLink="#D58512"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ivAddAnimal"
+            app:layout_constraintTop_toBottomOf="@+id/etAdd"
             app:strokeColor="#FF9800"
-            tools:layout_editor_absoluteX="106dp"
-            tools:layout_editor_absoluteY="663dp" />
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/etAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="139dp"
+            android:text="AddAnimal"
+            app:layout_constraintBottom_toTopOf="@+id/btnOpenCart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etBuy" />
+
+        <TextView
+            android:id="@+id/etBuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginTop="260dp"
+            android:layout_marginEnd="93dp"
+            android:layout_marginBottom="226dp"
+            android:text="BuyAnimal"
+            app:layout_constraintBottom_toTopOf="@+id/etAdd"
+            app:layout_constraintEnd_toEndOf="@+id/ivBuy"
+            app:layout_constraintStart_toStartOf="@+id/ivAddAnimal"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

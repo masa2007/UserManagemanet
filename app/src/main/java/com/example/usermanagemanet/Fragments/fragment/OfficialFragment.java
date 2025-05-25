@@ -10,11 +10,9 @@ import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-
-import com.example.usermanagemanet.R;
-
+import com.example.usermanagemanet.Fragments.Data.AddAnimalFragment;
 import com.example.usermanagemanet.Fragments.Data.AllAnimalFragment;
-import com.example.usermanagemanet.Fragments.Classes.CartFragment;
+import com.example.usermanagemanet.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +21,7 @@ import com.example.usermanagemanet.Fragments.Classes.CartFragment;
  */
 public class OfficialFragment extends Fragment {
 
+    private FireBaseServices fbs;
     private ImageView ivBuy;
     private ImageView ivAdopt;
     private Button btnOpenCart;
@@ -69,58 +68,30 @@ public class OfficialFragment extends Fragment {
 
     public void onStart() {
         super.onStart();
-        connectComponents();
     }
 
 
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_official, container, false);
 
-        Button btnOpenCart = view.findViewById(R.id.btnOpenCart);
+        ivBuy = view.findViewById(R.id.ivBuy);
+        ivAdopt = view.findViewById(R.id.ivAddAnimal);
 
-        btnOpenCart.setOnClickListener(v -> {
-            getParentFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.FrameLayoutFrame, new CartFragment())
-                    .addToBackStack(null)
-                    .commit();
+        ivBuy.setOnClickListener(v -> {
+            FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.FrameLayoutFrame, new AllAnimalFragment());
+            ft.addToBackStack(null);
+            ft.commit();
+        });
+
+        ivAdopt.setOnClickListener(v -> {
+            FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.FrameLayoutFrame, new AddAnimalFragment());
+            ft.addToBackStack(null);
+            ft.commit();
         });
 
         return view;
-    }
-
-    private void connectComponents() {
-
-
-
-        ivBuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openAllAnimalFragment("buy");
-            }
-        });
-        ivAdopt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openAllAnimalFragment("adopt");
-            }
-        });
-
-    }
-
-    private void openAllAnimalFragment(String type) {
-        AllAnimalFragment fragment = new AllAnimalFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("buy-adopt", type);
-        fragment.setArguments(bundle);
-
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutFrame, fragment);
-        ft.commit();
-    }
-
-
-
-}
+    }}

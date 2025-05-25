@@ -1,66 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="312dp">
-
-        <TextView
-            android:id="@+id/tvAnimaltype"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Animaltype"
-            app:layout_constraintBottom_toBottomOf="@+id/tvAnimalPrice"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvAnimalPrice"
-            app:layout_constraintTop_toTopOf="@+id/tvAnimalPrice"
-            app:layout_constraintVertical_bias="1.0"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/tvAnimalPrice"
-            android:layout_width="226dp"
-            android:layout_height="81dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="140dp"
-            android:layout_weight="1"
-            android:text="AnimalPrice"
-            app:layout_constraintEnd_toStartOf="@+id/tvAnimaltype"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
 
         <ImageView
             android:id="@+id/ivAnimal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:contentDescription="صورة الحيوان" />
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="153dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="154dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvAnimaltype"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:text="🐾 النوع: "
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الجنس: "
+            android:textSize="16sp"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="العمر: "
+            android:textSize="16sp"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="اللون: "
+            android:textSize="16sp"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvPlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="المكان: "
+            android:textSize="16sp"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="₪ السعر: "
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#009688"
+            android:paddingTop="4dp" />
 
         <Button
             android:id="@+id/addToCartButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:text=" add to cart "
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</RelativeLayout>
+            android:text="🛒 أضف إلى السلة"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#009688"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

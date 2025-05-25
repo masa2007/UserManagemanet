@@ -14,29 +14,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.usermanagemanet.Fragments.Classes.Animal;
 import com.example.usermanagemanet.Fragments.Classes.CartFragment;
+import com.example.usermanagemanet.Fragments.fragment.FireBaseServices;
 import com.example.usermanagemanet.R;
-import com.squareup.picasso.Picasso;
+// import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
-import com.example.usermanagemanet.Fragments.fragment.FireBaseServices;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHolder> {
     Context context;
     ArrayList<Animal> amlList;
     private FireBaseServices fbs;
 
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
-        public ImageView ivAnimal;
-        TextView tvType, tvPrice;
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView ivAnimal;
+        TextView tvType, tvGender, tvAge, tvColor, tvPlace, tvPrice;
         Button btnAddToCart;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvType=itemView.findViewById(R.id.tvAnimaltype);
-            tvPrice=itemView.findViewById(R.id.tvAnimalPrice);
-            btnAddToCart=itemView.findViewById(R.id.addToCartButton);
-
+            ivAnimal = itemView.findViewById(R.id.ivAnimal);
+            tvType = itemView.findViewById(R.id.tvType);
+            tvGender = itemView.findViewById(R.id.tvGender);
+            tvAge = itemView.findViewById(R.id.tvAge);
+            tvColor = itemView.findViewById(R.id.tvColor);
+            tvPlace = itemView.findViewById(R.id.tvPlace);
+            tvPrice = itemView.findViewById(R.id.tvPrice);
+            btnAddToCart = itemView.findViewById(R.id.addToCartButton);
         }
     }
 
@@ -49,38 +52,36 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
     @NonNull
     @Override
     public AnimalAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-        View v= LayoutInflater.from(context).inflate(R.layout.animal_item,parent,false);
-        return  new AnimalAdapter.MyViewHolder(v);
+        View v = LayoutInflater.from(context).inflate(R.layout.animal_item, parent, false);
+        return new AnimalAdapter.MyViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AnimalAdapter.MyViewHolder holder, int position) {
         Animal aml = amlList.get(position);
-        holder.tvType.setText(aml.getType());
-        holder.tvPrice.setText(String.valueOf(aml.getprice()));
-        if (aml.getPhoto() == null || aml.getPhoto().isEmpty())
-        {
-            Picasso.get().load(R.drawable.ic_launcher_background).into(holder.ivAnimal);
-        }
-        else {
-            Picasso.get().load(aml.getPhoto()).into(holder.ivAnimal);
-        }
+
+        holder.tvType.setText("🐾 النوع: " + aml.getType());
+        holder.tvGender.setText("الجنس: " + aml.getGender());
+        holder.tvAge.setText("العمر: " + aml.getAge());
+        holder.tvColor.setText("اللون: " + aml.getColor());
+        holder.tvPlace.setText("المكان: " + aml.getPlace());
+        holder.tvPrice.setText("₪ السعر: " + aml.getprice());
+
+        // ❌ تم تعطيل تحميل الصور - وضع صورة افتراضية مؤقتًا
+        holder.ivAnimal.setImageResource(R.drawable.ic_launcher_background);
 
         holder.btnAddToCart.setOnClickListener(v -> {
             if (aml.getAdopt().equals("buy")) {
                 CartFragment.getInstance().addToCart(aml);
-                Toast.makeText(context, "animal  is in the cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "✅ تمت إضافة الحيوان إلى السلة", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(context, "cannot add adopted animal to the cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "❌ لا يمكن إضافة حيوان للتبني إلى السلة", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return amlList.size();
     }
-
-
 }

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.UserManagemanet"
         tools:targetApi="31">
         <activity
+            android:name=".Fragments.AllAnimal"
+            android:exported="false" />
+        <activity
+            android:name=".Fragments.AddAnimal"
+            android:exported="false" />
+        <activity
             android:name=".Fragments.Activities.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -9,7 +9,6 @@ public class Animal  implements Parcelable {
         private String type;
         private String gender;
         private  String age;
-        private String BirthOfDate;
         private  String color;
         private  String place;
         private  int price;
@@ -35,7 +34,6 @@ public class Animal  implements Parcelable {
         type = in.readString();
         gender = in.readString();
         age = in.readString();
-        BirthOfDate = in.readString();
         color = in.readString();
         place = in.readString();
         price = in.readInt();
@@ -65,7 +63,7 @@ public class Animal  implements Parcelable {
                     ", place='" + place + '\'' +
                     ", price='" + price+ '\'' +
                     ", photo='" + photo+ '\'' +
-                    ", buy_cell='" + buy_adopt+ '\'' +
+                    ", buy_adopt='" + buy_adopt+ '\'' +
                     '}';
         }
 
@@ -98,12 +96,6 @@ public class Animal  implements Parcelable {
             this.color = color;
         }
 
-        public String getBirthOfDate() {
-            return BirthOfDate;
-        }
-
-
-
         public String getAge() {
             return age;
         }
@@ -121,6 +113,9 @@ public class Animal  implements Parcelable {
         }
 
 
+    public String getGender() {
+        return gender;
+    }
 
         public void setGender(String gender) {
             this.gender = gender;
@@ -140,7 +135,6 @@ public class Animal  implements Parcelable {
         dest.writeString(type);
         dest.writeString(gender);
         dest.writeString(age);
-        dest.writeString(BirthOfDate);
         dest.writeString(color);
         dest.writeString(place);
         dest.writeInt(price);

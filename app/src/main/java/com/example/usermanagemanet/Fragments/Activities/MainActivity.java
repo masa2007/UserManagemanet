@@ -10,12 +10,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.usermanagemanet.Fragments.Data.AddAnimalFragment;
-import com.example.usermanagemanet.Fragments.Data.AllAnimalFragment;
-
+import com.example.usermanagemanet.Fragments.fragment.LoginFragment;
 import com.example.usermanagemanet.Fragments.fragment.OfficialFragment;
 import com.example.usermanagemanet.R;
-
-import com.example.usermanagemanet.Fragments.fragment.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,14 +37,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        gotoOfficialFraqment();
+      gotoLoginFraqment();
     }
 
-    private void gotoAllAnimalFraqment() {
-        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutFrame,new AllAnimalFragment());
-        ft.commit();
-    }
+
+
 
 
     private void gotoAddAnimalFraqment() {
@@ -61,9 +55,6 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.FrameLayoutFrame,new OfficialFragment());
         ft.commit();
     }
-
-
-
 
     private void gotoLoginFraqment() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
